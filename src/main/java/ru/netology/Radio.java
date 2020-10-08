@@ -8,6 +8,7 @@ public class Radio {
     private int minStationIndex;
     private int currentStation;
     private int currentVolume;
+    private int pultStation;
     private boolean on;
 
     public String getName() {
@@ -42,17 +43,11 @@ public class Radio {
         this.currentVolume = currentVolume;
     }
 
-    public int getMaxStationIndex(int i) {
-        return maxStationIndex;
-    }
 
     public void setMaxStationIndex(int maxStaionIndex) {
         this.maxStationIndex = maxStaionIndex;
     }
 
-    public int getMinStationIndex(int i) {
-        return minStationIndex;
-    }
 
     public void setMinStationIndex(int minStationIndex) {
         this.minStationIndex = minStationIndex;
@@ -73,33 +68,44 @@ public class Radio {
         if (currentStation >= maxStationIndex) {
             this.currentStation = -1;
         }
+
+        if (currentStation == minStationIndex) {
+            this.currentStation = currentStation;
+        }
     }
 
     public void setCurrentStation2(int currentStation) {
         if (currentStation > minStationIndex) {
             this.currentStation = currentStation;
         }
-        if (currentStation == minStationIndex) {
+        if (currentStation <= minStationIndex) {
             this.currentStation = 10;
         }
     }
 
     public void nextStation() {
-        int nextStation = getCurrentStation() + 1;
-        if (nextStation <= maxStationIndex) {
+        int nextStation = getCurrentStation() +1;
+        if (nextStation == maxStationIndex) {
             this.currentStation = nextStation;
         }
-        if (nextStation > maxStationIndex) {
+        if (nextStation > minStationIndex) {
+            this.currentStation = nextStation;
+        }
+        if (nextStation <= minStationIndex) {
             this.currentStation = 0;
         }
     }
 
     public void prevStation() {
-        int prevStation = getCurrentStation() - 1;
-        if (prevStation >= minStationIndex) {
+        int prevStation = getCurrentStation() -1;
+        if (prevStation > minStationIndex) {
             this.currentStation = prevStation;
         }
-        if (prevStation < minStationIndex) {
+
+        if (prevStation < maxStationIndex) {
+            this.currentStation = prevStation;
+        }
+        if (prevStation >= maxStationIndex) {
             this.currentStation = 9;
         }
     }
@@ -110,6 +116,12 @@ public class Radio {
         }
         if (pultStation <= maxStationIndex) {
             this.currentStation = pultStation;
+        }
+        if (pultStation > maxStationIndex) {
+            this.currentStation = 0;
+        }
+        if (pultStation < minStationIndex) {
+            this.currentStation = 0;
         }
     }
 

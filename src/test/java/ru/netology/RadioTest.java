@@ -97,8 +97,8 @@ public class RadioTest {
 
         radio.setMinStationIndex(0);
         radio.setMaxStationIndex(9);
-        int pultStation = 0;
-        assertEquals(0, radio.getCurrentStation());
+        radio.pultStation(1);
+        assertEquals(1, radio.getCurrentStation());
     }
 
     @Test
@@ -107,7 +107,7 @@ public class RadioTest {
 
         radio.setMinStationIndex(0);
         radio.setMaxStationIndex(9);
-        int pultStation = 5;
+        radio.pultStation(0);
         assertEquals(0, radio.getCurrentStation());
     }
 
@@ -117,10 +117,29 @@ public class RadioTest {
 
         radio.setMinStationIndex(0);
         radio.setMaxStationIndex(9);
-        int pultStation = 9;
+        radio.pultStation(9);
+        assertEquals(9, radio.getCurrentStation());
+    }
+
+    @Test
+    void  pultStation4() {
+        Radio radio = new Radio();
+
+        radio.setMinStationIndex(0);
+        radio.setMaxStationIndex(9);
+        radio.pultStation(11);
         assertEquals(0, radio.getCurrentStation());
     }
 
+    @Test
+    void  pultStation5() {
+        Radio radio = new Radio();
+
+        radio.setMinStationIndex(0);
+        radio.setMaxStationIndex(9);
+        radio.pultStation(-1);
+        assertEquals(0, radio.getCurrentStation());
+    }
 
     @Test
     void nextStation1() {
