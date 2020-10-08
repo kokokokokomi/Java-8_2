@@ -4,7 +4,7 @@ public class Radio {
     private String name;
     private int maxVolume;
     private int minVolume;
-    private int maxStaionIndex;
+    private int maxStationIndex;
     private int minStationIndex;
     private int currentStation;
     private int currentVolume;
@@ -42,12 +42,12 @@ public class Radio {
         this.currentVolume = currentVolume;
     }
 
-    public int getMaxStaionIndex(int i) {
-        return maxStaionIndex;
+    public int getMaxStationIndex(int i) {
+        return maxStationIndex;
     }
 
-    public void setMaxStaionIndex(int maxStaionIndex) {
-        this.maxStaionIndex = maxStaionIndex;
+    public void setMaxStationIndex(int maxStaionIndex) {
+        this.maxStationIndex = maxStaionIndex;
     }
 
     public int getMinStationIndex(int i) {
@@ -66,16 +66,12 @@ public class Radio {
         return on;
     }
 
-    public void setOn(boolean on) {
-        this.on = on;
-    }
-
     public void setCurrentStation1(int currentStation) {
-        if (currentStation < maxStaionIndex) {
+        if (currentStation < maxStationIndex) {
             this.currentStation = currentStation;
         }
-        if (currentStation <= maxStaionIndex) {
-            return;
+        if (currentStation >= maxStationIndex) {
+            this.currentStation = -1;
         }
     }
 
@@ -90,10 +86,10 @@ public class Radio {
 
     public void nextStation() {
         int nextStation = getCurrentStation() + 1;
-        if (nextStation <= maxStaionIndex) {
+        if (nextStation <= maxStationIndex) {
             this.currentStation = nextStation;
         }
-        if (nextStation > maxStaionIndex) {
+        if (nextStation > maxStationIndex) {
             this.currentStation = 0;
         }
     }
@@ -112,7 +108,7 @@ public class Radio {
         if (pultStation >= minStationIndex) {
             this.currentStation = pultStation;
         }
-        if (pultStation <= maxStaionIndex) {
+        if (pultStation <= maxStationIndex) {
             this.currentStation = pultStation;
         }
     }
