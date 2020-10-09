@@ -147,7 +147,7 @@ public class RadioTest {
 
         radio.setMinStationIndex(0);
         radio.setMaxStationIndex(9);
-        radio.setCurrentStation1(9);
+        radio.setCurrentStation(9);
         radio.nextStation();
         assertEquals(0, radio.getCurrentStation());
     }
@@ -158,7 +158,7 @@ public class RadioTest {
 
         radio.setMinStationIndex(0);
         radio.setMaxStationIndex(9);
-        radio.setCurrentStation1(8);
+        radio.setCurrentStation(8);
         radio.nextStation();
         assertEquals(9, radio.getCurrentStation());
     }
@@ -169,7 +169,7 @@ public class RadioTest {
 
         radio.setMinStationIndex(0);
         radio.setMaxStationIndex(9);
-        radio.setCurrentStation1(0);
+        radio.setCurrentStation(0);
         radio.nextStation();
         assertEquals(1, radio.getCurrentStation());
     }
@@ -180,7 +180,7 @@ public class RadioTest {
 
         radio.setMinStationIndex(0);
         radio.setMaxStationIndex(9);
-        radio.setCurrentStation2(1);
+        radio.setCurrentStation(1);
         radio.prevStation();
         assertEquals(0, radio.getCurrentStation());
     }
@@ -191,7 +191,7 @@ public class RadioTest {
 
         radio.setMinStationIndex(0);
         radio.setMaxStationIndex(9);
-        radio.setCurrentStation2(9);
+        radio.setCurrentStation(9);
         radio.prevStation();
         assertEquals(8, radio.getCurrentStation());
     }
@@ -202,7 +202,7 @@ public class RadioTest {
 
         radio.setMinStationIndex(0);
         radio.setMaxStationIndex(9);
-        radio.setCurrentStation2(0);
+        radio.setCurrentStation(0);
         radio.prevStation();
         assertEquals(9, radio.getCurrentStation());
     }

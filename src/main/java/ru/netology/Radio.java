@@ -57,55 +57,28 @@ public class Radio {
         return currentStation;
     }
 
+    public void setCurrentStation(int currentStation) { this.currentStation = currentStation; }
+
     public boolean isOn() {
         return on;
     }
 
-    public void setCurrentStation1(int currentStation) {
-        if (currentStation < maxStationIndex) {
-            this.currentStation = currentStation;
-        }
-        if (currentStation >= maxStationIndex) {
-            this.currentStation = -1;
-        }
-
-        if (currentStation == minStationIndex) {
-            this.currentStation = currentStation;
-        }
-    }
-
-    public void setCurrentStation2(int currentStation) {
-        if (currentStation > minStationIndex) {
-            this.currentStation = currentStation;
-        }
-        if (currentStation <= minStationIndex) {
-            this.currentStation = 10;
-        }
-    }
-
     public void nextStation() {
         int nextStation = getCurrentStation() +1;
-        if (nextStation == maxStationIndex) {
+        if (nextStation <= maxStationIndex) {
             this.currentStation = nextStation;
         }
-        if (nextStation > minStationIndex) {
-            this.currentStation = nextStation;
-        }
-        if (nextStation <= minStationIndex) {
+        if (nextStation > maxStationIndex) {
             this.currentStation = 0;
         }
     }
 
     public void prevStation() {
         int prevStation = getCurrentStation() -1;
-        if (prevStation > minStationIndex) {
+        if (prevStation >= minStationIndex) {
             this.currentStation = prevStation;
         }
-
-        if (prevStation < maxStationIndex) {
-            this.currentStation = prevStation;
-        }
-        if (prevStation >= maxStationIndex) {
+        if (prevStation < minStationIndex) {
             this.currentStation = 9;
         }
     }
