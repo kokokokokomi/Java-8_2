@@ -1,11 +1,11 @@
 package ru.netology;
 
 public class Radio {
-    private String name;
-    private int maxVolume;
-    private int minVolume;
-    private int maxStationIndex;
-    private int minStationIndex;
+    private String name = "noname";
+    private int maxVolume = 100;
+    private int minVolume = 0;
+    private int maxStationIndex = 10;
+    private int minStationIndex = 0;
     private int currentStation;
     private int currentVolume;
     private int pultStation;
@@ -19,7 +19,7 @@ public class Radio {
         this.name = name;
     }
 
-    public int getMaxVolume(int i) {
+    public int getMaxVolume() {
         return maxVolume;
     }
 
@@ -27,7 +27,7 @@ public class Radio {
         this.maxVolume = maxVolume;
     }
 
-    public  int getMinVolume(int i) {
+    public  int getMinVolume() {
         return minVolume;
     }
 
@@ -43,11 +43,13 @@ public class Radio {
         this.currentVolume = currentVolume;
     }
 
+    public int getMaxStationIndex() { return maxStationIndex; }
 
     public void setMaxStationIndex(int maxStaionIndex) {
         this.maxStationIndex = maxStaionIndex;
     }
 
+    public int getMinStationIndex() { return minStationIndex; }
 
     public void setMinStationIndex(int minStationIndex) {
         this.minStationIndex = minStationIndex;
@@ -79,7 +81,7 @@ public class Radio {
             this.currentStation = prevStation;
         }
         if (prevStation < minStationIndex) {
-            this.currentStation = 9;
+            this.currentStation = 10;
         }
     }
 
@@ -87,11 +89,8 @@ public class Radio {
         if (pultStation >= minStationIndex) {
             this.currentStation = pultStation;
         }
-        if (pultStation <= maxStationIndex) {
-            this.currentStation = pultStation;
-        }
-        if (pultStation > maxStationIndex) {
-            this.currentStation = 0;
+        if (pultStation > maxStationIndex) {      // Т.к. на пульте можно из двух цифр набрать "10", то можно предположить, что можно набрать и любое другое двузначное число //
+            this.currentStation = 10;
         }
         if (pultStation < minStationIndex) {
             this.currentStation = 0;
