@@ -1,5 +1,9 @@
 package ru.netology;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 public class Radio {
     private String name = "noname";
     private int maxVolume = 100;
@@ -10,6 +14,21 @@ public class Radio {
     private int currentVolume;
     private int pultStation;
     private boolean on;
+
+    public Radio() {
+    }
+
+    public Radio(String name, int maxVolume, int minVolume, int maxStationIndex, int minStationIndex, int currentStation, int currentVolume, int pultStation, boolean on) {
+        this.name = name;
+        this.maxVolume = maxVolume;
+        this.minVolume = minVolume;
+        this.maxStationIndex = maxStationIndex;
+        this.minStationIndex = minStationIndex;
+        this.currentStation = currentStation;
+        this.currentVolume = currentVolume;
+        this.pultStation = pultStation;
+        this.on = on;
+    }
 
     public String getName() {
         return name;
@@ -27,7 +46,7 @@ public class Radio {
         this.maxVolume = maxVolume;
     }
 
-    public  int getMinVolume() {
+    public int getMinVolume() {
         return minVolume;
     }
 
@@ -35,21 +54,17 @@ public class Radio {
         this.minVolume = minVolume;
     }
 
-    public int getCurrentVolume() {
-        return currentVolume;
+    public int getMaxStationIndex() {
+        return maxStationIndex;
     }
 
-    public void setCurrentVolume (int currentVolume) {
-        this.currentVolume = currentVolume;
+    public void setMaxStationIndex(int maxStationIndex) {
+        this.maxStationIndex = maxStationIndex;
     }
 
-    public int getMaxStationIndex() { return maxStationIndex; }
-
-    public void setMaxStationIndex(int maxStaionIndex) {
-        this.maxStationIndex = maxStaionIndex;
+    public int getMinStationIndex() {
+        return minStationIndex;
     }
-
-    public int getMinStationIndex() { return minStationIndex; }
 
     public void setMinStationIndex(int minStationIndex) {
         this.minStationIndex = minStationIndex;
@@ -59,10 +74,32 @@ public class Radio {
         return currentStation;
     }
 
-    public void setCurrentStation(int currentStation) { this.currentStation = currentStation; }
+    public void setCurrentStation(int currentStation) {
+        this.currentStation = currentStation;
+    }
+
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
+    public void setCurrentVolume(int currentVolume) {
+        this.currentVolume = currentVolume;
+    }
+
+    public int getPultStation() {
+        return pultStation;
+    }
+
+    public void setPultStation(int pultStation) {
+        this.pultStation = pultStation;
+    }
 
     public boolean isOn() {
         return on;
+    }
+
+    public void setOn(boolean on) {
+        this.on = on;
     }
 
     public void nextStation() {
@@ -116,5 +153,4 @@ public class Radio {
             this.currentVolume = minVolume;
         }
     }
-
 }
