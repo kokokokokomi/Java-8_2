@@ -29,9 +29,9 @@ public class RadioTest {
     void decreaseCurrentVolume1() {
         radio.getMinVolume();
         radio.getMaxVolume();
-        radio.setCurrentVolume(10);
+        radio.setCurrentVolume(100);
         radio.decreaseCurrentVolume();
-        assertEquals(9, radio.getCurrentVolume());
+        assertEquals(99, radio.getCurrentVolume());
     }
 
     @Test
