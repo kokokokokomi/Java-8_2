@@ -11,59 +11,81 @@ public class Radio {
     private int pultStation;
     private boolean on;
 
-    public String getName() {
-        return name;
+    public Radio() {
     }
 
-    public void setName(String name) {
+    public Radio(String name, int maxVolume, int minVolume, int maxStationIndex, int minStationIndex, int currentStation, int currentVolume, int pultStation, boolean on) {
         this.name = name;
-    }
-
-    public int getMaxVolume() {
-        return maxVolume;
-    }
-
-    public void setMaxVolume(int maxVolume) {
         this.maxVolume = maxVolume;
-    }
-
-    public  int getMinVolume() {
-        return minVolume;
-    }
-
-    public void setMinVolume(int minVolume) {
         this.minVolume = minVolume;
-    }
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-    public void setCurrentVolume (int currentVolume) {
+        this.maxStationIndex = maxStationIndex;
+        this.minStationIndex = minStationIndex;
+        this.currentStation = currentStation;
         this.currentVolume = currentVolume;
+        this.pultStation = pultStation;
+        this.on = on;
     }
 
-    public int getMaxStationIndex() { return maxStationIndex; }
-
-    public void setMaxStationIndex(int maxStaionIndex) {
-        this.maxStationIndex = maxStaionIndex;
-    }
-
-    public int getMinStationIndex() { return minStationIndex; }
-
-    public void setMinStationIndex(int minStationIndex) {
+    public Radio(int maxVolume, int minVolume, int maxStationIndex, int minStationIndex) {
+        this.maxVolume = maxVolume;
+        this.minVolume = minVolume;
+        this.maxStationIndex = maxStationIndex;
         this.minStationIndex = minStationIndex;
     }
 
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getMaxVolume() {
+        return maxVolume;
+    }
+    public void setMaxVolume(int maxVolume) {
+        this.maxVolume = maxVolume;
+    }
+    public int getMinVolume() {
+        return minVolume;
+    }
+    public void setMinVolume(int minVolume) { this.minVolume = minVolume; }
+    public int getMaxStationIndex() {
+        return maxStationIndex;
+    }
+    public void setMaxStationIndex(int maxStationIndex) {
+        this.maxStationIndex = maxStationIndex;
+    }
+    public int getMinStationIndex() {
+        return minStationIndex;
+    }
+    public void setMinStationIndex(int minStationIndex) {
+        this.minStationIndex = minStationIndex;
+    }
     public int getCurrentStation() {
         return currentStation;
     }
-
-    public void setCurrentStation(int currentStation) { this.currentStation = currentStation; }
-
+    public void setCurrentStation(int currentStation) {
+        this.currentStation = currentStation;
+    }
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+    public void setCurrentVolume(int currentVolume) {
+        this.currentVolume = currentVolume;
+    }
+    public int getPultStation() {
+        return pultStation;
+    }
+    public void setPultStation(int pultStation) {
+        this.pultStation = pultStation;
+    }
     public boolean isOn() {
         return on;
     }
+    public void setOn(boolean on) {
+        this.on = on;
+    }
+
 
     public void nextStation() {
         int nextStation = getCurrentStation() +1;
